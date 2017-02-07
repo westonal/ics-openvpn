@@ -35,6 +35,9 @@ public class ICSOpenVPNApplication extends Application {
         mStatus = new StatusListener();
         mStatus.init(getApplicationContext());
 
+        new AssetUnpacker.Builder(this).filesOfExtension(".ovpn")
+                                       .build()
+                                       .unpack();
     }
 
     @TargetApi(Build.VERSION_CODES.O)
